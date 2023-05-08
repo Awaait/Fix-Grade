@@ -16,6 +16,8 @@ import java.util.UUID;
  * @author: YCJ
  * @date: 2023/05/08 下午1:45
  **/
+
+//TODO 保存成功后 依旧执行 上传异常部分
 @Service
 @Log4j
 public class UploadServiceImpl implements UploadService {
@@ -39,11 +41,12 @@ public class UploadServiceImpl implements UploadService {
             System.err.println(file.getAbsolutePath());
             multipartFile.transferTo(file);
             log.info(String.format("上传Excel 成功 --> {%s}", file));
+            return new ResponseResult(200, "success");
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseResult(201, "上传异常 " + e.getMessage());
         }
 
-        return new ResponseResult(200,"success");
+
     }
 }
