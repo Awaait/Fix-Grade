@@ -9,7 +9,7 @@ public class UploadUtils {
     public static File getExcelDirFile(){
 
         // 构建上传文件的存放 "文件夹" 路径
-        String fileDirPath = new String("E:\\FIx\\grade\\Excel");
+        String fileDirPath = new String("src/main/resources/static/Excel");
 
         File fileDir = new File(fileDirPath);
         if(!fileDir.exists()){
